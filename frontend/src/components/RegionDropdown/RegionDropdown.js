@@ -3,7 +3,7 @@ import Multiselect from 'react-widgets/lib/Multiselect'
 
 import { listRegions } from '../../services/regions';
 
-function RegionDropdown({ value, onChange }) {
+function RegionDropdown({ value, onChange, width }) {
     const [regions, setRegions] = useState([]);
 
     useEffect(() => {
@@ -16,8 +16,9 @@ function RegionDropdown({ value, onChange }) {
     }, []);
 
     return (
-        <div className="RegionDropdown">
+        <div style={{width: width}} className="RegionDropdown">
             <Multiselect
+            placeholder="Select Region"
                 value={ value }
                 data={ regions }
                 textField="name"

@@ -15,7 +15,6 @@ function AuthorCreate() {
         const payload = { firstName, lastName };
         await createAuthor(payload);
         history.push(ROUTE_AUTHOR_LIST);
-        console.log(`history`, history)
     };
 
     return (

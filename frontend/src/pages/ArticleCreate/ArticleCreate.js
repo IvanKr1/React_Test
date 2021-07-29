@@ -20,11 +20,15 @@ function ArticleCreate() {
       title,
       content,
       regions,
-      author: author.label,
-      authorId: author.value,
+      author: author.label === "" ? undefined: author.label,
+      authorId: author.value === "" ? undefined: author.value,
     };
-    await createArticle(payload);
-    history.push(ROUTE_ARTICLE_LIST);
+   
+    if (title.length !== 0) {
+      await createArticle(payload);
+      history.push(ROUTE_ARTICLE_LIST);
+    }
+  
   };
 
   return (
